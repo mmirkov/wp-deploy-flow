@@ -74,7 +74,7 @@ class WP_Deploy_Flow_Puller {
 
     $dist_path  = constant( WP_Deploy_Flow_Command::config_constant( 'path' ) ) . '/';
     $commands[]= array("ssh $ssh_user@$ssh_host -p $ssh_port \"cd $dist_path;wp db export dump.sql;\"", true);
-    $commands[]= array("scp $ssh_user@$ssh_host:$dist_path/dump.sql .", true);
+    $commands[]= array("scp -P $ssh_port $ssh_user@$ssh_host:$dist_path/dump.sql .", true);
     $commands[]= array("ssh $ssh_user@$ssh_host -p $ssh_port \"cd $dist_path; rm dump.sql;\"", true);
   }
 
