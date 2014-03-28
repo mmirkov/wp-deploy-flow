@@ -59,7 +59,6 @@ class WP_Deploy_Flow_Puller {
       }
     }
     $excludes = array_reduce( $excludes, function($acc, $value) { $acc.= "--exclude \"$value\" "; return $acc; } );
-// Test
     if ( $ssh_host ) {
       $commands[]= array("rsync -avz --delete -e 'ssh -p $ssh_port' $ssh_user@$ssh_host:$remote_path $local_path $excludes", true);
     } else {
