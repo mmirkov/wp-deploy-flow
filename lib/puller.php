@@ -23,7 +23,7 @@ class WP_Deploy_Flow_Puller {
     $this->_commands_for_files( $commands );
     
     // Deactivate W3 Total cache after successful pull
-    $commands[]= array('wp plugin deactivate w3-total-cache', true);
+    $commands[]= array("wp plugin deactivate w3-total-cache", true);
 
     return $commands;
   }
