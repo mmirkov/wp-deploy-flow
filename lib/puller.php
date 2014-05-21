@@ -24,7 +24,7 @@ class WP_Deploy_Flow_Puller {
     
     // Deactivate W3 Total Cache after successful pull
     $commands[]= array("wp plugin deactivate w3-total-cache", true);
-    // Ensure, bots are disallowed to index anything
+    // Disallow indexing 
     $commands[]= array("echo -e \"User-Agent: *\nDisallow: /\n\" > ./robots.txt", true);
 
     return $commands;
