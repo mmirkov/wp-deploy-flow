@@ -29,7 +29,7 @@ class WP_Deploy_Flow_Puller {
     // Deactivate Wordpress SEO plugin 
     //$commands[]= array("wp plugin deactivate wordpress-seo", true);
     // Disallow indexing 
-    $commands[]= array("echo -e \"User-Agent: *\nDisallow: /\n\" > $local_dir/robots.txt", true);
+    $commands[]= array("cd $local_dir && echo -e \"User-Agent: *\nDisallow: /\n\" > robots.txt", true);
 
     return $commands;
   }
