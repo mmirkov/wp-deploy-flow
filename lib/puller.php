@@ -21,13 +21,15 @@ class WP_Deploy_Flow_Puller {
     $commands[]= array('rm dump.sql', true);
 
     $this->_commands_for_files( $commands );
-    
+   
+    // Set local path variable
+    $local_dir = ABSPATH; 
     // Deactivate W3 Total Cache after successful pull
     $commands[]= array("wp plugin deactivate w3-total-cache", true);
     // Deactivate Wordpress SEO plugin 
     //$commands[]= array("wp plugin deactivate wordpress-seo", true);
     // Disallow indexing 
-    $commands[]= array("echo -e \"User-Agent: *\nDisallow: /\n\" > ./robots.txt", true);
+    $commands[]= array("cd $local_dir && echo -e \"User-Agent: *\nDisallow: /\n\" > ./robots.txt", true);
 
     return $commands;
   }
