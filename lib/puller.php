@@ -30,6 +30,8 @@ class WP_Deploy_Flow_Puller {
     //$commands[]= array("wp plugin deactivate wordpress-seo", true);
     // Disallow indexing 
     $commands[]= array("cd $local_dir && echo -e \"User-Agent: *\nDisallow: /\n\" > robots.txt", true);
+    // Notify HipChat after successful pull
+    $commands[]= array("/usr/local/bin/notify_deployment_success", true);
 
     return $commands;
   }
