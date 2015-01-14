@@ -53,7 +53,6 @@ class WP_Deploy_Flow_Puller {
     $excludes = array_merge(
       $excludes,
       array(
-        '.git',
         '.sass-cache',
         'wp-content/cache',
         'wp-content/_wpremote_backups',
