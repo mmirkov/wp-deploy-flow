@@ -26,8 +26,10 @@ class WP_Deploy_Flow_Puller {
     $local_dir = ABSPATH; 
     // Deactivate W3 Total Cache after successful pull
     $commands[]= array("wp plugin deactivate w3-total-cache", true);
-    // Deactivate Wordpress SEO plugin 
-    //$commands[]= array("wp plugin deactivate wordpress-seo", true);
+    // Install Query Monitor plugin
+    $commands[]= array("wp plugin install query-monitor", true);
+    // Install and activate User Switching plugin
+    $commands[]= array("wp plugin install user-switching --activate ", true);
     // Disallow indexing 
     $commands[]= array("cd $local_dir && echo -e \"User-Agent: *\nDisallow: /\n\" > robots.txt", true);
     // Notify HipChat after successful pull
