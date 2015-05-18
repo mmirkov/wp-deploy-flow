@@ -3,7 +3,7 @@
 Plugin Name: wp-deploy-flow
 Plugin URI: http://demental.info
 Description: A command-line task to deploy
-Version: 0.1
+Version: 0.5
 Author: Arnaud Sellenet
 Author URI: http://demental.info
 License: GPL2
