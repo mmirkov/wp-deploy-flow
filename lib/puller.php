@@ -30,6 +30,10 @@ class WP_Deploy_Flow_Puller {
     $commands[]= array("wp plugin install query-monitor", true);
     // Install and activate User Switching plugin
     $commands[]= array("wp plugin install user-switching --activate ", true);
+    // Install and activate WP-CLI-Migrate plugin
+    $commands[]= array("wp plugin install https://github.com/mmirkov/WP-CLI-Migrate/archive/master.zip --activate", true);
+    // Install and activate WP-Deploy-Flow plugin
+    $commands[]= array("wp plugin install https://github.com/mmirkov/wp-deploy-flow/archive/master.zip  --activate",true);
     // Install and activate WP-Migrate-DB plguin
     $commands[]= array("wp plugin install wp-migrate-db --activate", true);
     // Disallow indexing 
