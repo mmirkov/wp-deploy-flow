@@ -30,6 +30,8 @@ class WP_Deploy_Flow_Puller {
     $commands[]= array("wp plugin install query-monitor", true);
     // Install and activate User Switching plugin
     $commands[]= array("wp plugin install user-switching --activate ", true);
+    // Install and activate WP-Migrate-DB plguin
+    $commands[]= array("wp plugin install wp-migrate-db --activate", true);
     // Disallow indexing 
     $commands[]= array("cd $local_dir && echo -e \"User-Agent: *\nDisallow: /\n\" > robots.txt", true);
     // Notify HipChat after successful pull
