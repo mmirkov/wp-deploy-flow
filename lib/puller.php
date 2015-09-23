@@ -26,6 +26,9 @@ class WP_Deploy_Flow_Puller {
     $local_dir = ABSPATH; 
     // Deactivate W3 Total Cache after successful pull
     $commands[]= array("wp plugin deactivate w3-total-cache", true);
+    // Deactivate and uninstall Akismet
+    $commands[]= array("wp plugin deactivate akismet", true);
+    $commands[]= array("wp plugin uninstall akismet", true);
     // Install Query Monitor plugin
     $commands[]= array("wp plugin install query-monitor", true);
     // Install and activate User Switching plugin
