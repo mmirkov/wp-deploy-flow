@@ -94,9 +94,9 @@ class WP_Deploy_Flow_Puller {
     $host = $db_host . ':' . $db_port;
 
     $dist_path  = constant( WP_Deploy_Flow_Command::config_constant( 'path' ) ) . '/';
-    $commands[]= array("ssh $ssh_user@$ssh_host -p $ssh_port \"cd $dist_path;wp db export dump.sql;\"", true);
-    $commands[]= array("scp -P $ssh_port $ssh_user@$ssh_host:$dist_path/dump.sql .", true);
-    $commands[]= array("ssh $ssh_user@$ssh_host -p $ssh_port \"cd $dist_path; rm dump.sql;\"", true);
+    $commands[]= array("ssh $ssh_user@$ssh_host -p $ssh_port \"cd $dist_path;wp db export ../dump.sql;\"", true);
+    $commands[]= array("scp -P $ssh_port $ssh_user@$ssh_host:$dist_path../dump.sql .", true);
+    $commands[]= array("ssh $ssh_user@$ssh_host -p $ssh_port \"cd $dist_path; rm ../dump.sql;\"", true);
   }
 
   protected function _commands_for_database_import_locally(&$commands)
@@ -113,7 +113,7 @@ class WP_Deploy_Flow_Puller {
 
   protected function _commands_for_database_dump(&$commands) {
 		extract( $this->params );
-    $commands[]= array('wp db export db_bk.sql', true);
+    //$commands[]= array('wp db export db_bk.sql', true);
 
     $commands[]= array('wp db import dump.sql', true);
 
