@@ -32,7 +32,7 @@ class WP_Deploy_Flow_Puller {
     // Install Query Monitor plugin
     $commands[]= array("wp plugin install query-monitor", true);
     // Install and activate User Switching plugin
-    $commands[]= array("wp plugin install user-switching --activate ", true);
+    $commands[]= array("wp plugin install user-switching --activate", true);
     // Install and activate WP-CLI-Migrate plugin
     $commands[]= array("wp plugin install https://github.com/mmirkov/WP-CLI-Migrate/archive/master.zip --activate", true);
     // Install and activate WP-Deploy-Flow plugin
@@ -82,9 +82,9 @@ class WP_Deploy_Flow_Puller {
     }
     $excludes = array_reduce( $excludes, function($acc, $value) { $acc.= "--exclude \"$value\" "; return $acc; } );
     if ( $ssh_host ) {
-      $commands[]= array("rsync -avz --delete -e 'ssh -p $ssh_port' $ssh_user@$ssh_host:$remote_path $local_path $excludes", true);
+      $commands[]= array("rsync -avzh --delete -e 'ssh -p $ssh_port' $ssh_user@$ssh_host:$remote_path $local_path $excludes", true);
     } else {
-      $commands[]= array("rsync -avz --delete $remote_path $local_path $excludes", true);
+      $commands[]= array("rsync -avzh --delete $remote_path $local_path $excludes", true);
     }
   }
 
